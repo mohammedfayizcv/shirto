@@ -1,0 +1,47 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+
+
+<!--  -->
+<section id="page-head">
+    <h2 class="fw-bold">
+        <div id="Category">category</div>
+    </h2>
+    <p>Sve more with coupens & up to % off70</p>
+
+</section>
+<div class="section-p1">
+    <div class="container">
+        <div class="d-inline-flex ">
+            <h4 class="text-center"><a href="{% url 'home' %}"> <i class="fas fa-arrow-left"></i> Home /</a></h4>
+            <h4 class="text-center"><a href="{% url 'collection' %}"> Cetegory</a></h4>
+        </div><hr>
+    </div>
+
+
+</div>
+
+<section id="product-1" class="section-p1">
+    <div class="pro-container">
+        {% for item in category %}
+        <div class="pro">
+            <a href="{% url 'collections' item.slug %}">
+            <img src="{{ item.image.url }}" alt="category image">
+            <div class="des">
+                <span>{{ item.item }}</span>
+                <h5 class="fw-bold">{{ item.name }}</h5>
+            </div>
+        </a>
+
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+
+
+
+
+
+{% endblock content %}

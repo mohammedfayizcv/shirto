@@ -1,0 +1,47 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="bg-head">
+    <h2 class="fw-bold">#READMORE</h2>
+    <p>Lorem consectetur adipisicing elit. Odit magnam aspernatur porro.</p>
+
+</section>
+<!-- blogg -->
+<section id="blog">
+    <div class="blog-box">
+        <div class="blog-img">
+            <img src="{% static 'media/bg1.jpg' %}" alt="">
+        </div>
+        <div class="blog-details">
+            <h4>the cotton tfd</h4>
+            <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum incidunt maxime, saepe
+                sunt ullam itaque laboriosam illum! Aliquam, enim.</p>
+            <a href="#">CONTINUE READ</a>
+        </div>
+        <h1>
+            Explore
+        </h1>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+<section id="pagenation" class="section-p1">
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#"><i class="fas fa-arrow-right"></i></a>
+
+
+</section>
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,205 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .cart{
+        width: 40px;
+        height: 40px;
+        line-height: 30px;
+        border-radius: 50px;
+        background-color: #e8f6ea;
+        color: #088178;
+        border: 1px solid #cce7d0;
+        right: 10px;
+    }
+</style>
+
+<section id="prodetails" class="section-p1 product_data">
+
+    <div class="single-pro-img">
+        <img src="{{ products.product_image.url}}" width="100%" style="padding: 2px;" id="main-img" alt="shirt">
+        <div class="smaill-img-gp">
+            <div class="small-img-col">
+                {% if  products.product_image %}
+                <img src="{{ products.product_image.url}}" width="100%" class="small-img" alt="">
+                {% endif %}
+            </div>
+            <div class="small-img-col">
+                {% if  products.product_image_2 %}
+                <img src="{{ products.product_image_2.url}}" width="100%" class="small-img" alt="">
+                {% endif %}
+            </div>
+            <div class="small-img-col">
+                {% if  products.product_image_3 %}
+                <img src="{{ products.product_image_3.url}}" width="100%" class="small-img" alt="">
+               {% endif %}
+            </div>
+            <div class="small-img-col">
+                {% if  products.product_image_4 %}
+                <img src="{{ products.product_image_4.url }} " width="100%" class="small-img" alt="">
+                {% endif %}
+                
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="single-pro-details">
+        <div class="d-inline-flex ">
+            <h6 class="text-center"><a href="{% url 'home' %}"> <i class="fas fa-arrow-left"></i> Home /</a></h6>
+            <h6 class="text-center"><a href="{% url 'collection' %}"> Category /&nbsp;</a></h6>
+            <h6 class="text-center"><a href="{% url 'collections' products.category.slug %}"> {{ products.category.name }}</a></h6>
+        </div>
+        {% if products.trending %}
+        <label class="float-end badge bg-danger " style="font-size: 9px;">tranding</label>
+        {% endif %}
+        <h4>{{ products.name }}</h4>
+        <h2>₹ {{ products.price }}</h2>
+        <h4>{{ products.small_description }}</h4>
+
+        <select name="" id="">
+            <option value="">seclect Size</option>
+            <option value="">Small</option>
+            <option value="">Medium</option>
+            <option value="">Large</option>
+            <option value="">XL</option>
+            <option value="">XXL</option>
+        </select>
+        {% if products.quantity > 0 %}
+        <label class="badge bg-Success">In Stock</label>
+        {% else%}
+        <label class="badge bg-danger">Out of Stock</label>
+        {% endif %}
+        <div class="mt-2">
+            {% csrf_token %}
+            <input type="hidden" value="{{ products.id }}" class="prod_id">
+            <label for="Quantity">Quantity</label>
+            <div class="input-group text-center mb-3" style="width: 131px;">
+                <button class="input-group-text decrement-btn ">-</button>
+                <input type="text" name="Quantity" class="form-control text-center qty-input " value="1">
+                <button class="input-group-text increment-btn">+</button>
+            </div>
+            
+
+        </div>
+        <div class="mt-1">
+            {% if products.quantity > 0 %}
+            <button type="button" class="btn btn-success cart me-3 float-start addToCartBtn" ><i class="fas fa-shopping-cart "></i></button>
+            {% endif %}
+            <button type="button" class="btn btn-success cart me-3 float-start addToWhisList  "><i class="fas fa-heart "></i></button>
+
+        </div>
+        <br>
+        <div class="mt-2">
+            <h4 class="fw-bold">Product Details</h4>
+            <span>{{ products.description}}</span>
+
+        </div>
+        
+       
+
+    </div>
+</section>
+<!-- 
+<section id="product-1" class="section-p1">
+    <h2>Feature Products</h2>
+    <p>Summer Collection Morden Design</p>
+    <div class="pro-container">
+        <div class="pro">
+            <img src="{% static 'media/new arivel.jpg' %}" alt="img">
+            <div class="des">
+                <span>Shirto</span>
+                <h5>Leaf Print Cotton Shirt</h5>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+
+                </div>
+                <h4>$50</h4>
+
+            </div>
+            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+            <img src="{% static 'media/img1.jpg' %}" alt="">
+            <div class="des">
+                <span>Shirto</span>
+                <h5>Leaf Print Cotton Shirt</h5>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+
+                </div>
+                <h4>$50</h4>
+
+            </div>
+            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+            <img src="{% static 'media/img1.jpg' %}" alt="">
+            <div class="des">
+                <span>Shirto</span>
+                <h5>Leaf Print Cotton Shirt</h5>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+
+                </div>
+                <h4>$50</h4>
+
+            </div>
+            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+            <img src="{% static 'media/img1.jpg' %}" alt="">
+            <div class="des">
+                <span>Shirto</span>
+                <h5>Leaf Print Cotton Shirt</h5>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+
+                </div>
+                <h4>$50</h4>
+
+            </div>
+            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+        </div>
+
+
+    </div>
+
+
+</section> -->
+
+<script>
+
+    var mainImg = document.getElementById('main-img');
+    var smImg = document.getElementsByClassName('small-img');
+
+    smImg[0].onclick = function () {
+        mainImg.src = smImg[0].src;
+    }
+    smImg[1].onclick = function () {
+        mainImg.src = smImg[1].src;
+    }
+    smImg[2].onclick = function () {
+        mainImg.src = smImg[2].src;
+    }
+    smImg[3].onclick = function () {
+        mainImg.src = smImg[3].src;
+    }
+
+</script>
+
+{% endblock content %}

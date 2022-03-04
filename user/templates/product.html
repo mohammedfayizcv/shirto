@@ -1,0 +1,74 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<!--  -->
+<section id="page-head">
+    <h2 class="fw-bold">#{{ category.name }}</h2>
+    <p>Sve more with coupens & up to % off70</p>
+
+</section>
+
+<div class="section-p1">
+    <div class="container">
+        <div class="d-inline-flex ">
+            <h4 class="text-center"><a href="{% url 'home' %}"> <i class="fas fa-arrow-left"></i> Home /</a></h4>
+            <h4 class="text-center"><a href="{% url 'collection' %}"> Category /&nbsp;</a></h4>
+            <h4 class="text-center"><a href="{% url 'collections' category.slug %}"> {{ category.name }}</a>
+            </h4>
+
+        </div>
+        <hr>
+    </div>
+
+
+</div>
+
+<section id="product-1" class="section-p1">
+    <div class="pro-container">
+        {% for item in products %}
+        <div class="pro">
+            <a href="{% url 'productview' item.category.slug item.slug %}">
+
+
+                <img src="{{ item.product_image.url }}" alt=" pro img">
+                <div class="des">
+                    <span></span>
+                    <h5>{{ item.name }}</h5>
+               
+                    <h4>₹ {{ item.price }}</h4>
+
+
+                </div>
+                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+                <a href="#"><i class="fas fa-heart heart"></i></a>
+
+
+            </a>
+        </div>
+        {% endfor %}
+
+
+    </div>
+</section>
+
+<!-- pagenation -->
+
+<section id="pagenation" class="section-p1">
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#"><i class="fas fa-arrow-right"></i></a>
+
+
+</section>
+
+
+
+
+
+
+
+{% endblock content %}
