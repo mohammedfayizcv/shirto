@@ -79,8 +79,8 @@ WSGI_APPLICATION = 'shirt_emo_pro.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shirtodb',
-        'USER':'shortoUser',
+        'NAME': 'shirto',
+        'USER':'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '5432',
