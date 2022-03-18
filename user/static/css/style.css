@@ -111,16 +111,12 @@ body{
     color: #088178;
 }
 
-#navbar li a.active::after,
+/* #navbar li a.active::after,
 #navbar li a:hover::after{
     content: "";
-    width: 50%;
-    height: 2px;
     background-color: #088178;
-    position: absolute;
-    bottom: -4px;
-    left: 20px;
-}
+   
+} */
 #mobile{
     display: none;
     align-items: center;
@@ -685,6 +681,10 @@ footer .copyright{
 #about-head div{
     padding-left: 40px;
 
+}
+.checkoutform label{
+    font-size: 14px;
+    font-weight: 600;
 }
 
 

@@ -22,11 +22,8 @@
 
         </div>
         <hr>
-    </div>
-
-
+    </div>  
 </div>
-
 <section id="product-1" class="section-p1">
     <div class="pro-container">
         {% for item in products %}
@@ -38,15 +35,8 @@
                 <div class="des">
                     <span></span>
                     <h5>{{ item.name }}</h5>
-               
                     <h4>₹ {{ item.price }}</h4>
-
-
                 </div>
-                <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-                <a href="#"><i class="fas fa-heart heart"></i></a>
-
-
             </a>
         </div>
         {% endfor %}

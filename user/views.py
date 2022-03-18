@@ -11,13 +11,18 @@ def fun_master(request):
     return render (request,'master.html',)
 
 def funHome(request):
-    return render(request,'home.html')
+    treanding_pro=Product.objects.filter(trending=1)
+    context={'treanding_pro':treanding_pro}
+    
+    return render(request,'home.html',context)
 
 def funAbout(request):
     return render(request,'about.html')
 
 def funShop(request):
-    return render(request,'shop.html')
+    allpro=Product.objects.filter(status=0)
+    context={'allpro':allpro}
+    return render(request,'shop.html',context)
 
 
 

@@ -14,234 +14,26 @@
 
 <section id="product-1" class="section-p1">
     <div class="pro-container">
-        <div class="pro" >
-            {% comment %} onclick="window.location.href='{% url 'showproduct' %}'"  {% endcomment %}
-            <img src="{% static 'media/img1.jpg' %}" alt="">
-            <div class="des">
-                <span>Shirto</span>
-                <h5>Leaf Print Cotton Shirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
-                </div>
-                <h4>$50</h4>
-
-            </div>
-            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-        </div>
+       {% for item in allpro %}
         <div class="pro">
-            <img src="{% static 'media/img1.jpg' %}" alt="">
-            <div class="des">
-                <span>Shirto</span>
-                <h5>Leaf Print Cotton Shirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
+            <a href="{% url 'productview' item.category.slug item.slug %}">
+                <img src="{{ item.product_image.url }}" alt="">
+                <div class="des">
+                    <span>{{ item.slug }}</span>
+                    <h5>{{ item.name }}</h5>
+                   
+                    <h4>₹ {{ item.price }}</h4>
+    
                 </div>
-                <h4>$50</h4>
-
-            </div>
-            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+               
+                <a href="https://wa.me/9746351731?text=I'm%20interested%20in%20This%20Item" target="_blank" class="cart"><i class="fab fa-whatsapp "></i> </a>
+    
+                <!-- <a href="#"><i class="fas fa-shopping-cart "></i></a> -->
+    
+            </a>
         </div>
-        <div class="pro">
-            <img src="{% static 'media/img1.jpg' %}" alt="">
-            <div class="des">
-                <span>Shirto</span>
-                <h5>Leaf Print Cotton Shirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
-                </div>
-                <h4>$50</h4>
-
-            </div>
-            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro">
-            <img src="{% static 'media/img1.jpg' %}" alt="">
-            <div class="des">
-                <span>Shirto</span>
-                <h5>Leaf Print Cotton Shirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
-                </div>
-                <h4>$50</h4>
-
-            </div>
-            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro">
-            <img src="{% static 'media/img1.jpg' %}" alt="">
-            <div class="des">
-                <span>Shirto</span>
-                <h5>Leaf Print Cotton Shirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
-                </div>
-                <h4>$50</h4>
-
-            </div>
-            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro">
-            <img src="{% static 'media/img1.jpg' %}" alt="">
-            <div class="des">
-                <span>Shirto</span>
-                <h5>Leaf Print Cotton Shirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
-                </div>
-                <h4>$50</h4>
-
-            </div>
-            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro">
-            <img src="{% static 'media/img1.jpg' %}" alt="">
-            <div class="des">
-                <span>Shirto</span>
-                <h5>Leaf Print Cotton Shirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
-                </div>
-                <h4>$50</h4>
-
-            </div>
-            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro">
-            <img src="{% static 'media/img1.jpg' %}" alt="">
-            <div class="des">
-                <span>Shirto</span>
-                <h5>Leaf Print Cotton Shirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
-                </div>
-                <h4>$50</h4>
-
-            </div>
-            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-        </div>
-
-
-
-        <!-- newarrivel -->
-
-        <div class="pro">
-            <img src="{% static 'media/new arivel.jpg' %}" alt="img">
-            <div class="des">
-                <span>Shirto</span>
-                <h5>Leaf Print Cotton Shirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
-                </div>
-                <h4>$50</h4>
-
-            </div>
-            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro">
-            <img src="{% static 'media/img1.jpg' %}" alt="">
-            <div class="des">
-                <span>Shirto</span>
-                <h5>Leaf Print Cotton Shirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
-                </div>
-                <h4>$50</h4>
-
-            </div>
-            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro">
-            <img src="{% static 'media/img1.jpg' %}" alt="">
-            <div class="des">
-                <span>Shirto</span>
-                <h5>Leaf Print Cotton Shirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
-                </div>
-                <h4>$50</h4>
-
-            </div>
-            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro">
-            <img src="{% static 'media/img1.jpg' %}" alt="">
-            <div class="des">
-                <span>Shirto</span>
-                <h5>Leaf Print Cotton Shirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
-                </div>
-                <h4>$50</h4>
-
-            </div>
-            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-        </div>
-        <div class="pro">
-            <img src="{% static 'media/img1.jpg' %}" alt="">
-            <div class="des">
-                <span>Shirto</span>
-                <h5>Leaf Print Cotton Shirt</h5>
-                <div class="star">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
-                </div>
-                <h4>$50</h4>
-
-            </div>
-            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
-        </div>
-
+        {% endfor %}
+        
     </div>
 </section>
 

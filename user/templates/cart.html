@@ -1,0 +1,92 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+
+<div class="section-p1">
+    <div class="container">
+        <div class="d-inline-flex ">
+            <h4 class="text-center"><a href="{% url 'home' %}"> <i class="fas fa-arrow-left"></i> Home /</a></h4>
+            <h4 class="text-center"><a href="{% url 'collection' %}"> Category /&nbsp;</a></h4>
+            <h4 class="text-center"><a href="{% url 'cart' %}"> Cart</a></h4>
+
+    
+        </div>
+        <hr>
+    </div>
+
+
+</div>
+
+
+<div class="section-p1">
+    <div class="container">
+        <div class="row">
+            <div class=" col-lg-12 col-md-12 col-sm-12">
+                <div class="card shadow">
+                    <div class="card-body cartdata">
+                        {% if cart %}
+                            {% for item in cart %}
+                            <div class="row product_data">
+                                <div class="col-md-2 my-auto">
+                                    <img src="{{ item.product.product_image.url }}" class="mt-1" alt="" height="100px" width="100px">
+                                </div>
+                                <div class="col-md-3 my-auto">
+                                    <h6><strong>{{ item.product.name }}</strong></h6>
+                                </div>
+                                <div class="col-md-2 my-auto">
+                                    <h6>Rs {{ item.product.price | stringformat:'d' }}</h6>
+                                </div>
+                                <div class="col-md-3 my-auto">
+                                    <input type="hidden" class="prod_id" value="{{ item.product_id }}">
+                                    {% csrf_token %}
+                                    {% if item.product.quantity >= item.product_qty %}
+                                    <label for="Quantity">Quantity</label>
+                                    <div class="input-group text-center mb-3" style="width: 130px;">
+                                        <button class="input-group-text changeQuantity decrement-btn">-</button>
+                                        <input type="text" name="quantity" class="form-control text-center qty-input "
+                                            value="{{ item.product_qty }}">
+                                        <button class="input-group-text changeQuantity increment-btn">+</button>
+
+                                    </div>
+                                    {% else %}
+                                    <h6>Out of stock </h6>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-2 my-auto">
+                                    <button class="btn btn-danger rounded-pill delete-cart-item"><i class="fas fa-trash-alt"></i></button>
+                                </div>
+                                
+
+                            </div>
+                            {% endfor %}
+
+                        <a href="{% url 'checkout' %}" class="btn btn-outline-success rounded-pill mt-3 ">Complete Purchase<i class="fas fa-angle-right right"></i></a>
+                        {% else %}
+                        <h4>Your cart is Empty</h4>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
