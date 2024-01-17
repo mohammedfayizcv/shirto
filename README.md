@@ -60,7 +60,7 @@ The application will be accessible at http://localhost:8000/.
 
 Access the admin panel:
 
-Visit http://localhost:8000/admin/ and log in with the superuser credentials.
+Visit http://localhost:8000/ and log in with the superuser credentials.
 
 Deployment
 To deploy Shirto to a live server, follow these general steps:
